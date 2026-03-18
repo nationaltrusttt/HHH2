@@ -178,6 +178,9 @@ footer .divider{width:32px;height:1px;background:var(--border);margin:1.25rem au
 .code-input::placeholder{color:rgba(255,255,255,0.25);text-transform:none;letter-spacing:0;}
 .code-input:focus{outline:none;border-color:var(--gold);}
 .code-hint{font-size:0.72rem;min-height:1rem;padding-left:0.1rem;}
+
+.code-submit-btn{width:100%;margin-top:0.5rem;padding:0.65rem 1rem;background:transparent;border:1px solid rgba(184,146,74,0.5);border-radius:3px;color:var(--gold-light);font-family:'Lato',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;}
+.code-submit-btn:hover{background:rgba(184,146,74,0.15);border-color:var(--gold);}
 </style>
 </head>
 <body>
@@ -276,9 +279,11 @@ footer .divider{width:32px;height:1px;background:var(--border);margin:1.25rem au
           <p class="animal-fact">The size of a car. Its bones were pulled from Trinidad's asphalt deposits — the same tar that preserved them for tens of thousands of years is still beneath this island today.</p>
         </div>
         <div class="animal-gate">
-          <div class="gate-locked" id="locked-animal-sloth1">
-            <input type="text" class="code-input" id="input-animal-sloth1" placeholder="Enter code word from egg" maxlength="10" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" oninput="this.value=this.value.toUpperCase()" onkeyup="checkCode('animal-sloth1','PITCHLAKE','https://sketchfab.com/models/16c8a444411a423fa19e17f5a454f740/embed?ui_ar=1')">
+          <<div class="gate-locked" id="locked-animal-sloth1">
+            <input type="text" class="code-input" id="input-animal-sloth1" placeholder="Enter code word from egg" maxlength="10" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" oninput="this.value=this.value.toUpperCase()">
+            <button class="code-submit-btn" id="submit-animal-sloth1" onclick="checkCode('animal-sloth1','PITCHLAKE','')">Unlock</button>
             <div class="code-hint" id="hint-animal-sloth1"></div>
+          </div>
           </div>
           <a href="https://sketchfab.com/models/16c8a444411a423fa19e17f5a454f740/embed?ui_ar=1" target="_blank" class="animal-btn" id="btn-animal-sloth1" style="display:none;" onclick="markFound('animal-sloth1')">&#x1F9AC; Meet it at Mille Fleurs</a>
         </div>
@@ -293,9 +298,11 @@ footer .divider{width:32px;height:1px;background:var(--border);margin:1.25rem au
           <p class="animal-fact">Smaller than Harlan's but no less strange. Two different ground sloth species walked Trinidad at the same time, grazing the same savanna that once stretched from here to Venezuela.</p>
         </div>
         <div class="animal-gate">
-          <div class="gate-locked" id="locked-animal-sloth2">
-            <input type="text" class="code-input" id="input-animal-sloth2" placeholder="Enter code word from egg" maxlength="10" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" oninput="this.value=this.value.toUpperCase()" onkeyup="checkCode('animal-sloth2','LABREA','https://sketchfab.com/models/aa015395f4cc4fe7a74fc1a58b4fcb36/embed?ui_ar=1')">
+          <<div class="gate-locked" id="locked-animal-sloth2">
+            <input type="text" class="code-input" id="input-animal-sloth2" placeholder="Enter code word from egg" maxlength="10" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" oninput="this.value=this.value.toUpperCase()">
+            <button class="code-submit-btn" id="submit-animal-sloth2" onclick="checkCode('animal-sloth2','LABREA','')">Unlock</button>
             <div class="code-hint" id="hint-animal-sloth2"></div>
+          </div>
           </div>
           <a href="https://sketchfab.com/models/aa015395f4cc4fe7a74fc1a58b4fcb36/embed?ui_ar=1" target="_blank" class="animal-btn" id="btn-animal-sloth2" style="display:none;" onclick="markFound('animal-sloth2')">&#x1F9AC; Meet it at Mille Fleurs</a>
         </div>
@@ -310,9 +317,11 @@ footer .divider{width:32px;height:1px;background:var(--border);margin:1.25rem au
           <p class="animal-fact">A flying predator with a wingspan wider than you are tall. Its fossils have been found in Trinidad. Look up when you scan — this one belongs in the sky above Mille Fleurs.</p>
         </div>
         <div class="animal-gate">
-          <div class="gate-locked" id="locked-animal-teratorn">
-            <input type="text" class="code-input" id="input-animal-teratorn" placeholder="Enter code word from egg" maxlength="10" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" oninput="this.value=this.value.toUpperCase()" onkeyup="checkCode('animal-teratorn','SAVANNA','https://sketchfab.com/models/cf3b18862d1849168c31f7fd6964c925/embed?ui_ar=1')">
+          <<div class="gate-locked" id="locked-animal-teratorn">
+            <input type="text" class="code-input" id="input-animal-teratorn" placeholder="Enter code word from egg" maxlength="10" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" oninput="this.value=this.value.toUpperCase()">
+            <button class="code-submit-btn" id="submit-animal-teratorn" onclick="checkCode('animal-teratorn','SAVANNA','')">Unlock</button>
             <div class="code-hint" id="hint-animal-teratorn"></div>
+          </div>
           </div>
           <a href="https://sketchfab.com/models/cf3b18862d1849168c31f7fd6964c925/embed?ui_ar=1" target="_blank" class="animal-btn" id="btn-animal-teratorn" style="display:none;" onclick="markFound('animal-teratorn')">&#x1F985; Meet it at Mille Fleurs</a>
         </div>
@@ -327,9 +336,11 @@ footer .divider{width:32px;height:1px;background:var(--border);margin:1.25rem au
           <p class="animal-fact">Elephant-like creatures called gomphotheres walked Trinidad — confirmed from our asphalt deposits. The Mastodon was their close relative, roaming the same vast Ice Age continent that once included this island.</p>
         </div>
         <div class="animal-gate">
-          <div class="gate-locked" id="locked-animal-mastodon">
-            <input type="text" class="code-input" id="input-animal-mastodon" placeholder="Enter code word from egg" maxlength="10" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" oninput="this.value=this.value.toUpperCase()" onkeyup="checkCode('animal-mastodon','FOSSILS','https://sketchfab.com/models/ce335fa19cb141ae8467bb8d4320f56b/embed?ui_ar=1')">
+          <<div class="gate-locked" id="locked-animal-mastodon">
+            <input type="text" class="code-input" id="input-animal-mastodon" placeholder="Enter code word from egg" maxlength="10" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" oninput="this.value=this.value.toUpperCase()">
+            <button class="code-submit-btn" id="submit-animal-mastodon" onclick="checkCode('animal-mastodon','FOSSILS','')">Unlock</button>
             <div class="code-hint" id="hint-animal-mastodon"></div>
+          </div>
           </div>
           <a href="https://sketchfab.com/models/ce335fa19cb141ae8467bb8d4320f56b/embed?ui_ar=1" target="_blank" class="animal-btn" id="btn-animal-mastodon" style="display:none;" onclick="markFound('animal-mastodon')">&#x1F418; Meet it at Mille Fleurs</a>
         </div>
@@ -344,9 +355,11 @@ footer .divider{width:32px;height:1px;background:var(--border);margin:1.25rem au
           <p class="animal-fact">During the Ice Age, Trinidad was part of a vast savanna connected to South America. Large herbivores like this one grazed that same landscape. Trinidad was not always an island — it was once the edge of a continent.</p>
         </div>
         <div class="animal-gate">
-          <div class="gate-locked" id="locked-animal-bison">
-            <input type="text" class="code-input" id="input-animal-bison" placeholder="Enter code word from egg" maxlength="10" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" oninput="this.value=this.value.toUpperCase()" onkeyup="checkCode('animal-bison','MILLE','https://sketchfab.com/models/1573bfa6fd364b29b631356f5c9268da/embed?ui_ar=1')">
+          <<div class="gate-locked" id="locked-animal-bison">
+            <input type="text" class="code-input" id="input-animal-bison" placeholder="Enter code word from egg" maxlength="10" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" oninput="this.value=this.value.toUpperCase()">
+            <button class="code-submit-btn" id="submit-animal-bison" onclick="checkCode('animal-bison','MILLE','')">Unlock</button>
             <div class="code-hint" id="hint-animal-bison"></div>
+          </div>
           </div>
           <a href="https://sketchfab.com/models/1573bfa6fd364b29b631356f5c9268da/embed?ui_ar=1" target="_blank" class="animal-btn" id="btn-animal-bison" style="display:none;" onclick="markFound('animal-bison')">&#x1F403; Meet it at Mille Fleurs</a>
         </div>
@@ -361,9 +374,11 @@ footer .divider{width:32px;height:1px;background:var(--border);margin:1.25rem au
           <p class="animal-fact">Thirteen feet tall. Tusks longer than a car. The Columbian Mammoth roamed the Ice Age Americas — the same world that Trinidad was part of before the sea rose and made us an island approximately 11,000 years ago.</p>
         </div>
         <div class="animal-gate">
-          <div class="gate-locked" id="locked-animal-mammoth">
-            <input type="text" class="code-input" id="input-animal-mammoth" placeholder="Enter code word from egg" maxlength="10" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" oninput="this.value=this.value.toUpperCase()" onkeyup="checkCode('animal-mammoth','FLEURS','https://sketchfab.com/models/e47d442b22d64fbd9a3b7a539fc47987/embed?ui_ar=1')">
+          <<div class="gate-locked" id="locked-animal-mammoth">
+            <input type="text" class="code-input" id="input-animal-mammoth" placeholder="Enter code word from egg" maxlength="10" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" oninput="this.value=this.value.toUpperCase()">
+            <button class="code-submit-btn" id="submit-animal-mammoth" onclick="checkCode('animal-mammoth','FLEURS','')">Unlock</button>
             <div class="code-hint" id="hint-animal-mammoth"></div>
+          </div>
           </div>
           <a href="https://sketchfab.com/models/e47d442b22d64fbd9a3b7a539fc47987/embed?ui_ar=1" target="_blank" class="animal-btn" id="btn-animal-mammoth" style="display:none;" onclick="markFound('animal-mammoth')">&#x1F9A3; Meet it at Mille Fleurs</a>
         </div>
@@ -647,20 +662,41 @@ footer .divider{width:32px;height:1px;background:var(--border);margin:1.25rem au
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
+document.addEventListener('DOMContentLoaded', function(){
+  var animals = ['animal-sloth1','animal-sloth2','animal-teratorn','animal-mastodon','animal-bison','animal-mammoth'];
+  var codes = {'animal-sloth1':'PITCHLAKE','animal-sloth2':'LABREA','animal-teratorn':'SAVANNA','animal-mastodon':'FOSSILS','animal-bison':'MILLE','animal-mammoth':'FLEURS'};
+  animals.forEach(function(id){
+    var input = document.getElementById('input-'+id);
+    if(input){
+      input.addEventListener('keydown', function(e){
+        if(e.key === 'Enter'){
+          e.preventDefault();
+          checkCode(id, codes[id], '');
+        }
+      });
+    }
+  });
+});
+
 function checkCode(id, correctCode, url){
   var input = document.getElementById('input-'+id);
   var hint = document.getElementById('hint-'+id);
   var btn = document.getElementById('btn-'+id);
+  var submitBtn = document.getElementById('submit-'+id);
   var val = input.value.trim().toUpperCase();
   if(val === correctCode){
-    input.style.display='none';
-    if(hint) hint.style.display='none';
+    if(input) input.style.display='none';
+    if(submitBtn) submitBtn.style.display='none';
+    if(hint){hint.textContent='';hint.style.display='none';}
     btn.style.display='block';
     markFound(id);
-  } else if(val.length >= correctCode.length){
-    if(hint){hint.textContent='Not quite. Check the slip inside the egg.';hint.style.color='rgba(255,100,100,0.8)';}
   } else {
-    if(hint) hint.textContent='';
+    if(hint){
+      hint.textContent='Not quite. Check the slip inside the egg.';
+      hint.style.color='rgba(255,100,100,0.8)';
+      hint.style.display='block';
+    }
+    input.focus();
   }
 }
 function markFound(id){
