@@ -37,6 +37,10 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            /* PASTE YOUR HERO IMAGE BASE64 HERE IN THE URL */
+            background-image: url('data:image/jpeg;base64,[PASTE YOUR HERO IMAGE BASE64 HERE]');
+            background-size: cover;
+            background-position: center;
         }
 
         .hero::before {
@@ -140,21 +144,6 @@
             font-size: 1rem;
         }
 
-        /* Welcome Text */
-        .welcome-text {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            text-align: center;
-        }
-
-        .welcome-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .welcome-text p:last-child {
-            margin-bottom: 0;
-        }
-
         /* Cards */
         .card-grid {
             display: grid;
@@ -212,6 +201,7 @@
             color: white;
             padding: 4rem 1.5rem;
             margin: 2rem 0;
+            position: relative;
         }
 
         .hunt-header {
@@ -435,14 +425,42 @@
             box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
 
-        .completion-msg {
-            text-align: center;
-            color: var(--gold);
-            font-weight: bold;
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
+        /* Celebration Mechanics */
+        .victory-badge {
             display: none;
-            animation: popIn 0.5s ease;
+            text-align: center;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+        }
+
+        .victory-badge h3 {
+            color: var(--gold);
+            font-family: "Georgia", serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .victory-badge p {
+            color: white;
+            font-size: 0.95rem;
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            z-index: 1000;
+            animation: fall linear forwards;
+            top: -10px;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
 
         /* Forms */
@@ -510,22 +528,6 @@
         .form-success p {
             font-size: 1.1rem;
             margin-bottom: 0;
-        }
-
-        /* Storytelling */
-        .story-block {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--gold);
-        }
-
-        .story-time {
-            color: var(--gold);
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
         }
 
         /* Map List */
@@ -695,7 +697,7 @@
                 <span class="animal-badge confirmed">Found in Trinidad</span>
                 <h3 class="animal-name">Harlan's Ground Sloth</h3>
                 <div class="animal-latin">Paramylodon</div>
-                <p class="animal-fact">This giant was over five metres tall. It could easily eat leaves directly from the roof of the Mille Fleurs verandah.</p>
+                <p class="animal-fact">This giant stood over five metres tall. If it was standing on the lawn right now, it could easily peek over the edge of the Mille Fleurs roof to eat leaves from the trees.</p>
                 
                 <div class="action-container" id="container-sloth1">
                     <div class="input-group" id="group-sloth1">
@@ -710,7 +712,7 @@
                 <span class="animal-badge confirmed">Found in Trinidad</span>
                 <h3 class="animal-name">Shasta Ground Sloth</h3>
                 <div class="animal-latin">Nothrotheriops</div>
-                <p class="animal-fact">Smaller than Harlan's sloth, but heavily built. Their bones were preserved perfectly in the asphalt seeps of La Brea.</p>
+                <p class="animal-fact">Smaller than Harlan's sloth but built like a tank. Their bones were preserved perfectly in the asphalt seeps of our own La Brea Pitch Lake. Point your phone at the grass to see it walking.</p>
                 
                 <div class="action-container" id="container-sloth2">
                     <div class="input-group" id="group-sloth2">
@@ -723,9 +725,9 @@
 
             <div class="animal-card" id="card-bird">
                 <span class="animal-badge confirmed">Found in Trinidad</span>
-                <h3 class="animal-name">Teratornis</h3>
-                <div class="animal-latin">Teratorn</div>
-                <p class="animal-fact">A giant predatory bird with a wingspan of up to 4 metres. Look up into the sky over the lawn.</p>
+                <h3 class="animal-name">Teratorn</h3>
+                <div class="animal-latin">Teratornis</div>
+                <p class="animal-fact">A massive predatory bird with a wingspan stretching up to four metres. Point your phone straight up at the sky over the property to watch it soar above you.</p>
                 
                 <div class="action-container" id="container-bird">
                     <div class="input-group" id="group-bird">
@@ -740,7 +742,7 @@
                 <span class="animal-badge">From Trinidad's world</span>
                 <h3 class="animal-name">American Mastodon</h3>
                 <div class="animal-latin">Mammut americanum</div>
-                <p class="animal-fact">Relatives of this enormous, hairy creature with curving tusks roamed the savanna connected to early Trinidad.</p>
+                <p class="animal-fact">Relatives of this enormous hairy creature with curving tusks roamed the ancient savannas that once connected early Trinidad to South America.</p>
                 
                 <div class="action-container" id="container-mastodon">
                     <div class="input-group" id="group-mastodon">
@@ -751,17 +753,17 @@
                 </div>
             </div>
 
-            <div class="animal-card" id="card-bison">
+            <div class="animal-card" id="card-cat">
                 <span class="animal-badge">From Trinidad's world</span>
-                <h3 class="animal-name">Ancient Bison</h3>
-                <div class="animal-latin">Bison antiquus</div>
-                <p class="animal-fact">Massive herds of herbivores like these grazed across the land bridge that once connected us to South America.</p>
+                <h3 class="animal-name">Saber Toothed Cat</h3>
+                <div class="animal-latin">Smilodon</div>
+                <p class="animal-fact">While its bones have not been discovered in our local tar seeps yet, this famous predator with massive fangs ruled the ancient American continent we were once attached to.</p>
                 
-                <div class="action-container" id="container-bison">
-                    <div class="input-group" id="group-bison">
-                        <input type="text" id="input-bison" class="code-input" placeholder="Enter code word">
-                        <button onclick="checkCode('bison')" class="check-btn">Unlock Animal</button>
-                        <div id="error-bison" class="inline-error"></div>
+                <div class="action-container" id="container-cat">
+                    <div class="input-group" id="group-cat">
+                        <input type="text" id="input-cat" class="code-input" placeholder="Enter code word">
+                        <button onclick="checkCode('cat')" class="check-btn">Unlock Animal</button>
+                        <div id="error-cat" class="inline-error"></div>
                     </div>
                 </div>
             </div>
@@ -770,7 +772,7 @@
                 <span class="animal-badge">From Trinidad's world</span>
                 <h3 class="animal-name">Columbian Mammoth</h3>
                 <div class="animal-latin">Mammuthus columbi</div>
-                <p class="animal-fact">Towering above the landscape, these spectacular giants thrived in the Ice Age ecosystems of the Americas.</p>
+                <p class="animal-fact">Towering above the landscape, these spectacular giants thrived in the Ice Age. Point your phone at the widest open space on the lawn to see just how incredibly massive a true mammoth was.</p>
                 
                 <div class="action-container" id="container-mammoth">
                     <div class="input-group" id="group-mammoth">
@@ -787,11 +789,14 @@
             <div class="tracker-dot" id="dot-sloth2"></div>
             <div class="tracker-dot" id="dot-bird"></div>
             <div class="tracker-dot" id="dot-mastodon"></div>
-            <div class="tracker-dot" id="dot-bison"></div>
+            <div class="tracker-dot" id="dot-cat"></div>
             <div class="tracker-dot" id="dot-mammoth"></div>
         </div>
-        <div class="completion-msg" id="completion-msg">
-            You found all six. You are a Prehistoric Explorer.
+
+        <div class="victory-badge" id="victory-badge">
+            <h3>You Found All Six!</h3>
+            <p>You are an official Prehistoric Explorer.</p>
+            <p style="margin-top: 1rem; font-weight: bold; color: var(--primary); background: var(--gold); display: inline-block; padding: 0.5rem 1rem; border-radius: 20px;">Take a photo of your animals on the lawn and tag @NationalTrustTT</p>
         </div>
         
         <div style="text-align: center; margin-top: 3rem; font-size: 0.8rem; color: rgba(255,255,255,0.4);">
@@ -936,24 +941,24 @@
         <div class="partner-tier">
             <div class="partner-tier-title">Official Community Partner</div>
             <div class="partner-logos">
-                <h3 style="color: var(--primary); font-family: sans-serif; letter-spacing: 1px;">bmobile</h3>
+                <img src="data:image/png;base64,[PASTE YOUR BMOBILE LOGO BASE64 HERE]" alt="bmobile" class="partner-logo large">
             </div>
         </div>
 
         <div class="partner-tier">
             <div class="partner-tier-title">Event Partners</div>
             <div class="partner-logos">
-                <h3 style="color: var(--text-light); font-family: sans-serif;">Kiss Baking Company</h3>
-                <h3 style="color: var(--text-light); font-family: sans-serif;">Dairy Dairy</h3>
-                <h3 style="color: var(--text-light); font-family: sans-serif;">Blue Waters</h3>
+                <img src="data:image/png;base64,[PASTE YOUR KISS BAKING LOGO BASE64 HERE]" alt="Kiss Baking Company" class="partner-logo">
+                <img src="data:image/png;base64,[PASTE YOUR DAIRY DAIRY LOGO BASE64 HERE]" alt="Dairy Dairy" class="partner-logo">
+                <img src="data:image/png;base64,[PASTE YOUR BLUE WATERS LOGO BASE64 HERE]" alt="Blue Waters" class="partner-logo">
             </div>
         </div>
 
         <div class="partner-tier">
             <div class="partner-tier-title">With the Support of</div>
             <div class="partner-logos">
-                <h3 style="color: var(--text-light); font-size: 1rem;">Ministry of Culture and Creative Development</h3>
-                <h3 style="color: var(--text-light); font-size: 1rem;">Embassy of the People's Republic of China</h3>
+                <img src="data:image/png;base64,[PASTE YOUR MINISTRY OF CULTURE LOGO BASE64 HERE]" alt="Ministry of Culture" class="partner-logo">
+                <div style="width: 150px; height: 60px; border: 1px dashed #ccc; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #999;">Chinese Embassy</div>
             </div>
         </div>
 
@@ -991,23 +996,23 @@
             });
         });
 
-        // AR Hunt Logic
+        // AR Hunt Logic with Direct Native Camera Links
         const codes = {
             'sloth1': 'PITCHLAKE',
             'sloth2': 'LABREA',
             'bird': 'SAVANNA',
             'mastodon': 'FOSSILS',
-            'bison': 'MILLE',
+            'cat': 'MILLE',
             'mammoth': 'FLEURS'
         };
 
         const links = {
-            'sloth1': 'https://sketchfab.com/models/16c8a444411a423fa19e17f5a454f740/embed?ui_ar=1',
-            'sloth2': 'https://sketchfab.com/models/aa015395f4cc4fe7a74fc1a58b4fcb36/embed?ui_ar=1',
-            'bird': 'https://sketchfab.com/models/cf3b18862d1849168c31f7fd6964c925/embed?ui_ar=1',
-            'mastodon': 'https://sketchfab.com/models/ce335fa19cb141ae8467bb8d4320f56b/embed?ui_ar=1',
-            'bison': 'https://sketchfab.com/models/1573bfa6fd364b29b631356f5c9268da/embed?ui_ar=1',
-            'mammoth': 'https://sketchfab.com/models/e47d442b22d64fbd9a3b7a539fc47987/embed?ui_ar=1'
+            'sloth1': 'https://sketchfab.com/models/16c8a444411a423fa19e17f5a454f740/ar-redirect',
+            'sloth2': 'https://sketchfab.com/models/aa015395f4cc4fe7a74fc1a58b4fcb36/ar-redirect',
+            'bird': 'https://sketchfab.com/models/cf3b18862d1849168c31f7fd6964c925/ar-redirect',
+            'mastodon': 'https://sketchfab.com/models/ce335fa19cb141ae8467bb8d4320f56b/ar-redirect',
+            'cat': 'https://sketchfab.com/models/0de156e0eb7c4bb3ae22d9ebaa691612/ar-redirect',
+            'mammoth': 'https://sketchfab.com/models/e47d442b22d64fbd9a3b7a539fc47987/ar-redirect'
         };
 
         function checkCode(animalId) {
@@ -1031,7 +1036,7 @@
             const card = document.getElementById('card-' + animalId);
             const dot = document.getElementById('dot-' + animalId);
             
-            container.innerHTML = `<a href="${links[animalId]}" target="_blank" class="btn-gold pop-in" onclick="markVisited('${animalId}')">Meet it at Mille Fleurs</a>`;
+            container.innerHTML = `<a href="${links[animalId]}" class="btn-gold pop-in" onclick="markVisited('${animalId}')">Meet it at Mille Fleurs</a>`;
             card.classList.add('unlocked');
             
             if (save) {
@@ -1051,6 +1056,20 @@
             checkCompletion();
         }
 
+        function shootConfetti() {
+            const colors = ['#d4af37', '#f9f6ef', '#ffffff', '#1C2B3A'];
+            for (let i = 0; i < 100; i++) {
+                let conf = document.createElement('div');
+                conf.classList.add('confetti');
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                conf.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                conf.style.animationDelay = Math.random() * 0.5 + 's';
+                document.body.appendChild(conf);
+                setTimeout(() => conf.remove(), 6000);
+            }
+        }
+
         function checkCompletion() {
             let allFound = true;
             for (let animalId in codes) {
@@ -1059,8 +1078,12 @@
                     break;
                 }
             }
-            if (allFound) {
-                document.getElementById('completion-msg').style.display = 'block';
+            if (allFound && !localStorage.getItem('victory_shown')) {
+                document.getElementById('victory-badge').style.display = 'block';
+                shootConfetti();
+                localStorage.setItem('victory_shown', 'true');
+            } else if (allFound) {
+                document.getElementById('victory-badge').style.display = 'block';
             }
         }
 
