@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hop, Hunt and Heritage 2 | National Trust of Trinidad and Tobago</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0a2540;
@@ -19,31 +22,43 @@
         body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
 
         .hero {
-            background-color: var(--primary);
-            color: white;
-            padding: 5rem 1.5rem 4rem;
-            text-align: center;
             position: relative;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            padding: 3rem 1.5rem 4rem;
             overflow: hidden;
+            color: white;
+        }
+        .hero-img {
+            position: absolute;
+            inset: 0;
             background-image: url('https://raw.githubusercontent.com/nationaltrusttt/HHH2/main/mille-fleurs-1.jpg');
             background-size: cover;
-            background-position: center 40%;
-            min-height: 480px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-position: center 30%;
+            filter: brightness(0.45);
         }
-        .hero::before {
-            content: "";
+        .hero::after {
+            content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(10,37,64,0.45) 0%, rgba(10,37,64,0.55) 50%, rgba(10,37,64,0.82) 100%);
-            z-index: 1;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(28,43,58,0.2) 0%, rgba(28,43,58,0.1) 40%, rgba(28,43,58,0.75) 75%, rgba(28,43,58,0.92) 100%);
+            pointer-events: none;
         }
-        .hero-content { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
-        .hero-date { color: var(--gold); font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1rem; font-weight: 600; }
-        .hero h1 { font-size: clamp(2.2rem, 7vw, 3.8rem); line-height: 1.1; margin-bottom: 1rem; font-family: "Georgia", serif; font-weight: normal; }
-        .hero-sub { font-size: 1.05rem; opacity: 0.85; font-style: italic; font-family: "Georgia", serif; }
+        .hero-content { position: relative; z-index: 2; max-width: 680px; }
+        .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light, #D4A96A); margin-bottom: 1rem; animation: fadeUp 1s ease both; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 9vw, 5.5rem); font-weight: 700; color: #fff; line-height: 1.05; margin-bottom: 0.5rem; animation: fadeUp 1s 0.15s ease both; }
+        .hero h1 em { font-style: italic; color: var(--gold-light, #D4A96A); }
+        .hero-theme { font-family: 'Playfair Display', serif; font-style: italic; color: rgba(255,255,255,0.65); font-size: clamp(1rem, 2.5vw, 1.2rem); margin-bottom: 2rem; animation: fadeUp 1s 0.3s ease both; }
+        .hero-meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; justify-content: center; color: rgba(255,255,255,0.6); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; animation: fadeUp 1s 0.45s ease both; }
+        .hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
+        .hero-meta span::before { content: ''; display: inline-block; width: 3px; height: 3px; border-radius: 50%; background: var(--gold); }
+        .hero-scroll { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.25); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; animation: fadeUp 1s 0.9s ease both; }
+        .hero-scroll::after { content: ''; display: block; width: 1px; height: 2rem; background: linear-gradient(to bottom, rgba(184,146,74,0.5), transparent); }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
         .nav-container { position: sticky; top: 0; background: white; padding: 0.85rem 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.07); z-index: 100; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
         .nav-container::-webkit-scrollbar { display: none; }
@@ -157,13 +172,20 @@
 </head>
 <body>
 
-<section class="hero" id="welcome">
-    <div class="hero-content">
-        <div class="hero-date">Sunday March 29, 2026 &nbsp;|&nbsp; Gates open 2:00 PM &nbsp;|&nbsp; Mille Fleurs, St Clair</div>
-        <h1>Hop, Hunt and Heritage 2</h1>
-        <p class="hero-sub">Welcome to the grounds. Explore the history, find the hidden creatures, and enjoy the games we used to play.</p>
+<div class="hero" id="top">
+  <div class="hero-img"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">National Trust of Trinidad and Tobago</div>
+    <h1>Hop, Hunt<br>and <em>Heritage</em> 2</h1>
+    <p class="hero-theme">Games We Used to Play</p>
+    <div class="hero-meta">
+      <span>Sunday March 29, 2026</span>
+      <span>Gates open 2:00 PM</span>
+      <span>Mille Fleurs, St Clair, Trinidad and Tobago</span>
     </div>
-</section>
+  </div>
+  <div class="hero-scroll">Explore</div>
+</div>
 
 <nav class="nav-container">
     <div class="nav-links">
@@ -405,10 +427,10 @@
     <p>Hop, Hunt and Heritage 2</p>
     <p>National Trust of Trinidad and Tobago</p>
     <p>Mille Fleurs Heritage House, 23 Maraval Road, St Clair, Port of Spain</p>
-    <p style="margin-top:0.75rem;">nationaltrust@gmail.com &nbsp;|&nbsp; 225-4750 / 277-6105 &nbsp;|&nbsp; nationaltrust.tt</p>
+    <p style="margin-top:0.75rem;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f49a95809d9b9a95988086818780b49399959d98da979b99">[email&#160;protected]</a> &nbsp;|&nbsp; 225-4750 / 277-6105 &nbsp;|&nbsp; nationaltrust.tt</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Nav smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', function(e) {
@@ -498,11 +520,4 @@
         if (input) input.addEventListener('input', function() { this.value = this.value.toUpperCase(); });
     });
 
-    // Restore state on load
-    window.addEventListener('load', () => {
-        Object.keys(codes).forEach(id => { if (localStorage.getItem('unlocked_' + id)) unlockAnimal(id, false); });
-        checkCompletion();
-    });
-</script>
-</body>
-</html>
+    // Restore s
