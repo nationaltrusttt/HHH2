@@ -19,7 +19,7 @@
             --error: #e74c3c;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
 
         .hero {
             position: relative;
@@ -45,29 +45,29 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(28,43,58,0.2) 0%, rgba(28,43,58,0.1) 40%, rgba(28,43,58,0.75) 75%, rgba(28,43,58,0.92) 100%);
+            background: linear-gradient(to bottom, rgba(10,37,64,0.2) 0%, rgba(10,37,64,0.1) 40%, rgba(10,37,64,0.75) 75%, rgba(10,37,64,0.92) 100%);
             pointer-events: none;
         }
-        .hero-content { position: relative; z-index: 2; max-width: 680px; }
-        .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light, #D4A96A); margin-bottom: 1rem; animation: fadeUp 1s ease both; }
+        .hero-content { position: relative; z-index: 2; max-width: 680px; width: 100%; }
+        .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 1rem; animation: fadeUp 1s ease both; }
         .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 9vw, 5.5rem); font-weight: 700; color: #fff; line-height: 1.05; margin-bottom: 0.5rem; animation: fadeUp 1s 0.15s ease both; }
-        .hero h1 em { font-style: italic; color: var(--gold-light, #D4A96A); }
+        .hero h1 em { font-style: italic; color: var(--gold); }
         .hero-theme { font-family: 'Playfair Display', serif; font-style: italic; color: rgba(255,255,255,0.65); font-size: clamp(1rem, 2.5vw, 1.2rem); margin-bottom: 2rem; animation: fadeUp 1s 0.3s ease both; }
         .hero-meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; justify-content: center; color: rgba(255,255,255,0.6); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; animation: fadeUp 1s 0.45s ease both; }
         .hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
         .hero-meta span::before { content: ''; display: inline-block; width: 3px; height: 3px; border-radius: 50%; background: var(--gold); }
         .hero-scroll { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.25); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; animation: fadeUp 1s 0.9s ease both; }
-        .hero-scroll::after { content: ''; display: block; width: 1px; height: 2rem; background: linear-gradient(to bottom, rgba(184,146,74,0.5), transparent); }
+        .hero-scroll::after { content: ''; display: block; width: 1px; height: 2rem; background: linear-gradient(to bottom, rgba(212,175,55,0.5), transparent); }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
         .nav-container { position: sticky; top: 0; background: white; padding: 0.85rem 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.07); z-index: 100; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
         .nav-container::-webkit-scrollbar { display: none; }
-        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links { display: flex; gap: 1.5rem; min-width: max-content; }
         .nav-item { color: var(--text-light); text-decoration: none; font-size: 0.85rem; font-weight: 500; padding-bottom: 0.25rem; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; }
         .nav-item:hover, .nav-item.active { color: var(--primary); border-bottom-color: var(--gold); }
         .nav-item.highlight { color: var(--gold); font-weight: 700; }
 
-        .section { padding: 3.5rem 1.5rem; max-width: 800px; margin: 0 auto; }
+        .section { padding: 3.5rem 1.5rem; max-width: 800px; margin: 0 auto; width: 100%; box-sizing: border-box; }
         .section-title { color: var(--primary); font-family: "Georgia", serif; font-size: 1.8rem; margin-bottom: 0.5rem; font-weight: normal; }
         .section-subtitle { color: var(--text-light); font-size: 0.95rem; margin-bottom: 2rem; }
         .body-text p { color: var(--text-light); margin-bottom: 1rem; line-height: 1.7; }
@@ -120,7 +120,7 @@
         .confetti { position: fixed; width: 9px; height: 9px; z-index: 1000; animation: fall linear forwards; top: -10px; }
         @keyframes fall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
 
-        .hire-wrap { max-width: 800px; margin: 0 auto; padding: 0 1.5rem 3.5rem; }
+        .hire-wrap { max-width: 800px; margin: 0 auto; padding: 0 1.5rem 3.5rem; width: 100%; box-sizing: border-box; }
         .hire-box { background: var(--primary); color: white; padding: 3rem 2rem; border-radius: 14px; }
         .hire-box .section-title { color: white; font-size: 1.6rem; }
         .hire-box .section-subtitle { color: rgba(255,255,255,0.75); margin-bottom: 0; }
@@ -138,11 +138,12 @@
         .hire-card p { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
 
         .map-list { list-style: none; }
-        .map-item { display: flex; align-items: flex-start; padding: 0.9rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .map-item { display: flex; align-items: flex-start; padding: 1.1rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
         .map-item:last-child { border-bottom: none; }
-        .map-icon { width: 36px; height: 36px; min-width: 36px; background: var(--gold-light); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 1rem; font-size: 0.82rem; }
-        .map-label { font-weight: 600; color: var(--text-dark); font-size: 0.95rem; }
-        .map-desc { color: var(--text-light); font-size: 0.87rem; margin-top: 0.1rem; }
+        .map-icon { width: 36px; height: 36px; min-width: 36px; background: var(--gold-light); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 1rem; font-size: 0.82rem; margin-top: 0.15rem; }
+        .map-label { font-weight: 600; color: var(--text-dark); font-size: 0.95rem; margin-bottom: 0.25rem; }
+        .map-desc { color: var(--text-light); font-size: 0.87rem; line-height: 1.55; }
+        .map-context { color: var(--text-light); font-size: 0.85rem; font-style: italic; margin-bottom: 0.2rem; line-height: 1.5; }
 
         .btn-outline { display: inline-block; padding: 0.75rem 1.5rem; border: 2px solid var(--primary); color: var(--primary); text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
         .btn-outline:hover { background: var(--primary); color: white; }
@@ -180,8 +181,7 @@
     <p class="hero-theme">Games We Used to Play</p>
     <div class="hero-meta">
       <span>Sunday March 29, 2026</span>
-      <span>Gates open 2:00 PM</span>
-      <span>Mille Fleurs, St Clair, Trinidad and Tobago</span>
+      <span>Mille Fleurs, St Clair</span>
     </div>
   </div>
   <div class="hero-scroll">Explore</div>
@@ -313,7 +313,7 @@
             <p>You are an official Prehistoric Explorer of Mille Fleurs.</p>
             <p style="margin-top:1rem;font-weight:700;color:var(--primary);background:var(--gold);display:inline-block;padding:0.5rem 1.2rem;border-radius:20px;margin-top:1rem;">Take a photo of your animals on the lawn and tag us @ttnationaltrust</p>
         </div>
-        <p style="text-align:center;margin-top:2.5rem;font-size:0.75rem;color:rgba(255,255,255,0.35);">3D models provided for educational use by the Natural History Museum of Los Angeles County.</p>
+
     </div>
 </section>
 
@@ -322,31 +322,31 @@
     <p class="section-subtitle">Activities across the grounds this afternoon</p>
     <div class="card-grid">
         <div class="card"><span class="card-icon">&#x1F38A;</span><h3 class="card-title">Maypole Dancing</h3><p class="card-text">Watch the ribbons weave or join in. Running throughout the afternoon.</p><span class="card-meta">bmobile Games Yard</span></div>
-        <div class="card"><span class="card-icon">&#x1F3AE;</span><h3 class="card-title">Giant Yard Games</h3><p class="card-text">Giant Snakes and Ladders, Connect 4, Jenga, Tic Tac Toe and more. Walk up and play throughout the afternoon.</p><span class="card-meta">bmobile Games Yard</span></div>
-        <div class="card"><span class="card-icon">&#x1F941;</span><h3 class="card-title">Bobolee Beating</h3><p class="card-text">One of Trinidad and Tobago's most spirited Easter traditions. Find the Bobolee on the grounds and take your turn.</p><span class="card-meta">Front yard</span></div>
+        <div class="card"><span class="card-icon">&#x1F3AE;</span><h3 class="card-title">Giant Yard Games</h3><p class="card-text">Giant Snakes and Ladders, Connect 4, Tic Tac Toe and more. Walk up and play throughout the afternoon.</p><span class="card-meta">bmobile Games Yard</span></div>
+        <div class="card"><span class="card-icon">&#x1F941;</span><h3 class="card-title">Bobolee Beating</h3><p class="card-text">One of Trinidad and Tobago's most spirited Easter traditions. Find the Bobolee on the grounds and take your turn. From 5:30 PM.</p><span class="card-meta">Front yard</span></div>
         <div class="card"><span class="card-icon">&#x1F9E2;</span><h3 class="card-title">Easter Bonnet Competition</h3><p class="card-text">Three categories: Biggest and Boldest, Most Creative, Best Local Touch. Bring your bonnet from home. Register at the Games Yard table. Registration closes 3:30 PM.</p><span class="card-meta">Children 12 and under</span></div>
         <div class="card"><span class="card-icon">&#x1F38F;</span><h3 class="card-title">Kite Making with a Local Master</h3><p class="card-text">Build your own traditional kite from scratch. Sign up at the Camboulay Room door. Spots fill quickly.</p><span class="card-meta">Limited spots</span></div>
-        <div class="card"><span class="card-icon">&#x1F38F;</span><h3 class="card-title">Chinese Embassy Kite Workshop</h3><p class="card-text">Two sessions during the afternoon. Families build traditional Chinese kites together.</p><span class="card-meta">Upstairs Ballroom</span></div>
-        <div class="card"><span class="card-icon">&#x1F3B2;</span><h3 class="card-title">Traditional Games</h3><p class="card-text">Draughts, warri, card games and more. A Ministry of Culture and Community Development activation inside the house.</p><span class="card-meta">Salvatori Room</span></div>
-        <div class="card"><span class="card-icon">&#x1F4D6;</span><h3 class="card-title">Children's Storytelling</h3><p class="card-text">Two sessions in the Prada Room. No sign-up needed. Local authors reading work rooted in Trinidad and Tobago life and childhood.</p><span class="card-meta">Prada Room</span></div>
+        <div class="card"><span class="card-icon">&#x1F38F;</span><h3 class="card-title">Chinese Embassy Kite Workshop</h3><p class="card-text">Two sessions: 2:45 PM and 4:00 PM. Families build traditional Chinese kites together. Max 20 families per session.</p><span class="card-meta">Upstairs Ballroom</span></div>
+        <div class="card"><span class="card-icon">&#x1F3B2;</span><h3 class="card-title">Traditional Games</h3><p class="card-text">A Ministry of Culture and Community Development activation.</p><span class="card-meta">Salvatori Room</span></div>
+        <div class="card"><span class="card-icon">&#x1F4D6;</span><h3 class="card-title">Children's Storytelling</h3><p class="card-text">Two sessions: 2:45 PM and 5:00 PM. No sign-up needed. Local authors reading work rooted in Trinidad and Tobago life and childhood.</p><span class="card-meta">Prada Room</span></div>
         <div class="card"><span class="card-icon">&#x1F434;</span><h3 class="card-title">Horse Riding</h3><p class="card-text">Ponies at the back of the property near the market entrance, courtesy of the TTPS Mounted Branch.</p><span class="card-meta">Back of property</span></div>
         <div class="card"><span class="card-icon">&#x1F3A8;</span><h3 class="card-title">Face Painting</h3><p class="card-text">Find the face painter near the vendors at the back of the house. First come, first served.</p><span class="card-meta">Near the Mews</span></div>
-        <div class="card"><span class="card-icon">&#x1F372;</span><h3 class="card-title">Food and Refreshments</h3><p class="card-text">Vendors at the covered market at the back of the house. Corn soup, hot cross buns, snow cone, popcorn and more.</p><span class="card-meta">The Mews</span></div>
+        <div class="card"><span class="card-icon">&#x1F372;</span><h3 class="card-title">Food and Refreshments</h3><p class="card-text">Vendors on the grounds at the back of the house. Corn soup, snow cone, popcorn and more.</p><span class="card-meta">The Mews</span></div>
     </div>
 </section>
 
 <section class="section" id="map">
     <h2 class="section-title">Find Your Way</h2>
-    <p class="section-subtitle">Key locations across the property</p>
+    <p class="section-subtitle">The rooms in this building are named after the families who lived here.</p>
     <ul class="map-list">
-        <li class="map-item"><div class="map-icon">A</div><div><div class="map-label">Front Verandah</div><div class="map-desc">Bonnet Competition parade and judging</div></div></li>
-        <li class="map-item"><div class="map-icon">B</div><div><div class="map-label">Front yard, right side</div><div class="map-desc">bmobile Games Yard and Maypole Dancing</div></div></li>
-        <li class="map-item"><div class="map-icon">C</div><div><div class="map-label">Front yard, left side</div><div class="map-desc">Picnic lawn, called games, Quest and Bonnet registration, Dairy Dairy</div></div></li>
-        <li class="map-item"><div class="map-icon">D</div><div><div class="map-label">Salvatori Room, ground floor</div><div class="map-desc">Traditional Games, Ministry of Culture activation</div></div></li>
-        <li class="map-item"><div class="map-icon">E</div><div><div class="map-label">Camboulay Room door, ground floor</div><div class="map-desc">Local Kite Making sign-up</div></div></li>
-        <li class="map-item"><div class="map-icon">F</div><div><div class="map-label">Upstairs Ballroom</div><div class="map-desc">Chinese Embassy Kite Workshop</div></div></li>
-        <li class="map-item"><div class="map-icon">G</div><div><div class="map-label">Prada Room, ground floor</div><div class="map-desc">Children's Storytelling</div></div></li>
-        <li class="map-item"><div class="map-icon">H</div><div><div class="map-label">The Mews, back of house</div><div class="map-desc">Food vendors, face painting, horse riding, restrooms</div></div></li>
+        <li class="map-item"><div class="map-icon">A</div><div><div class="map-label">The Front Verandah</div><div class="map-context">This verandah has faced Maraval Road since 1904. It is doing what it was built to do.</div><div class="map-desc">Bonnet Competition parade and judging. DJ. MC.</div></div></li>
+        <li class="map-item"><div class="map-icon">B</div><div><div class="map-label">Front yard, right side</div><div class="map-desc">bmobile Games Yard and Maypole Dancing.</div></div></li>
+        <li class="map-item"><div class="map-icon">C</div><div><div class="map-label">Front yard, left side</div><div class="map-desc">Picnic lawn, called games, Quest and Bonnet registration, Dairy Dairy.</div></div></li>
+        <li class="map-item"><div class="map-icon">D</div><div><div class="map-label">The Salvatori Room &middot; ground floor</div><div class="map-context">Named after Joseph Salvatori, who bought this house in 1923. He hosted the most sought-after dinner parties on the island and counted dignitaries among his friends.</div><div class="map-desc">Ministry of Culture and Community Development activation.</div></div></li>
+        <li class="map-item"><div class="map-icon">E</div><div><div class="map-label">The Camboulay Room &middot; ground floor</div><div class="map-context">Named after the tradition that became the root of Carnival.</div><div class="map-desc">Local Kite Making. Sign up at the door. Spots are limited.</div></div></li>
+        <li class="map-item"><div class="map-icon">F</div><div><div class="map-label">The Ballroom &middot; upstairs</div><div class="map-context">The Salvatoris used this floor for family life and for entertaining guests with views over the Queen's Park Savannah.</div><div class="map-desc">Chinese Embassy Kite Workshop. Sessions at 2:45 PM and 4:00 PM.</div></div></li>
+        <li class="map-item"><div class="map-icon">G</div><div><div class="map-label">The Prada Room &middot; ground floor</div><div class="map-context">Named after Virginia and Enrique Prada. Virginia built this house in 1904 as a gift for her husband. She filled the yard with flowers and named it Mille Fleurs herself.</div><div class="map-desc">Children's Storytelling. Sessions at 2:45 PM and 5:00 PM. No sign-up needed.</div></div></li>
+        <li class="map-item"><div class="map-icon">H</div><div><div class="map-label">The Mews &middot; back of house</div><div class="map-context">The original stables. Now the working offices of the National Trust.</div><div class="map-desc">Food vendors, face painting and horse riding on the grounds outside. Restrooms inside.</div></div></li>
     </ul>
 </section>
 
@@ -427,7 +427,7 @@
     <p>Hop, Hunt and Heritage 2</p>
     <p>National Trust of Trinidad and Tobago</p>
     <p>Mille Fleurs Heritage House, 23 Maraval Road, St Clair, Port of Spain</p>
-    <p style="margin-top:0.75rem;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f49a95809d9b9a95988086818780b49399959d98da979b99">[email&#160;protected]</a> &nbsp;|&nbsp; 225-4750 / 277-6105 &nbsp;|&nbsp; nationaltrust.tt</p>
+    <p style="margin-top:0.75rem;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3957584d50565758554d4b4c4a4d795e54585055175a5654">[email&#160;protected]</a> &nbsp;|&nbsp; 225-4750 / 277-6105 &nbsp;|&nbsp; nationaltrust.tt</p>
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
