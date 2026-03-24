@@ -521,10 +521,21 @@
         if (input) input.addEventListener('input', function() { this.value = this.value.toUpperCase(); });
     });
 
-// Restore saved state
+
+    // Restore unlocked and visited states on page load
     Object.keys(codes).forEach(id => {
         if (localStorage.getItem('unlocked_' + id)) {
             unlockAnimal(id, false);
         }
+        if (localStorage.getItem('visited_' + id)) {
+            const dot = document.getElementById('dot-' + id);
+            if (dot) dot.classList.add('filled');
+        }
     });
+
+    // Restore victory state
     checkCompletion();
+
+</script>
+</body>
+</html>
