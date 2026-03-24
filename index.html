@@ -521,4 +521,10 @@
         if (input) input.addEventListener('input', function() { this.value = this.value.toUpperCase(); });
     });
 
-    // Restore s
+// Restore saved state
+    Object.keys(codes).forEach(id => {
+        if (localStorage.getItem('unlocked_' + id)) {
+            unlockAnimal(id, false);
+        }
+    });
+    checkCompletion();
